@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    title Bookers
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body
+    header
+      nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top.mb-4
+        .container
+          .navbar-brand Bookers
+          = button_tag class: 'navbar-toggler', data: { toggle: 'collapse', target: '#header-menu' }, area: { controls: 'header-menu', expanded: 'false', label: 'Toggle navigation' } do
+            span.navbar-toggler-icon
+          #header-menu.collapse.navbar-collapse
+            ul.navbar-nav.ml-auto
+              li.nav-item
+                = link_to root_path, class: 'nav-link', aria: { label: 'Home' } do
+                  i.fas.fa-home.mr-1
+                  | Home
+              li.nav-item
+                = link_to '#', class: 'nav-link', aria: { label: 'About' } do
+                  i.fas.fa-link.mr-1
+                  | About
+              li.nav-item
+                = link_to '#', class: 'nav-link', aria: { label: 'About' } do
+                  i.fas.fa-edit.mr-1
+                  | Sign up
+              li.nav-item
+                = link_to '#', class: 'nav-link', aria: {label: 'About'} do
+                  i.fas.fa-sign-in-alt.mr-1
+                  | Sign up
+
+    main == yield
+
+    footer
+      .container
+        .text-center.text-muted CopyRight Infratop.inc

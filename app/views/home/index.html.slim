@@ -1,0 +1,17 @@
+.container
+  h1.text-center
+    | Welcome to
+    i.fas.fa-book.mx-1
+    | Bookers !!
+  .text-center
+    p
+      | In
+      i.fas.fa-book.mx-1
+      | Bookers,
+    p you can share and exchange your opinions, inpressions, and emotions
+    p about various books!
+
+  .text-center
+    .row
+      .col-md-4.offset-md-4.col-8.offset-2.mb-2 = link_to 'Log in', new_user_session_path, class: 'btn btn-primary btn-block'
+      .col-md-4.offset-md-4.col-8.offset-2.mb-2 = link_to 'Sign up', new_user_registration_path, class: 'btn btn-success btn-block'
