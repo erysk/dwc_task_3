@@ -1,0 +1,9 @@
+- if resource.errors.any?
+  #error_explanation.card.mb-4
+    .card-header.bg-danger.text-white
+      i.fas.fa-exclamation-triangle.mr-1
+      = I18n.t('errors.messages.not_saved', count: resource.errors.count, resource: resource.class.model_name.human.downcase)
+    .card-body
+      ul
+        - resource.errors.full_messages.each do |message|
+          li.text-danger = message

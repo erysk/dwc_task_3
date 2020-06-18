@@ -26,16 +26,27 @@ html
                   i.fas.fa-link.mr-1
                   | About
               li.nav-item
-                = link_to '#', class: 'nav-link', aria: { label: 'About' } do
+                = link_to new_user_registration_path, class: 'nav-link', aria: { label: 'Sign up' } do
                   i.fas.fa-edit.mr-1
                   | Sign up
               li.nav-item
-                = link_to '#', class: 'nav-link', aria: {label: 'About'} do
+                = link_to new_user_session_path, class: 'nav-link', aria: { label: 'Login' } do
                   i.fas.fa-sign-in-alt.mr-1
-                  | Sign up
+                  | Login
 
-    main == yield
+    #wrapper
+      main
+        - alert_colors = %w(primary secondary success danger warning info light dark)
+        .container
+          - flash.each do |name, msg|
+            - unless alert_colors.include?(name)
+              - name = name == 'alert' ? 'danger' : 'primary'
+            = tag.div class: "alert alert-#{name} alert-dismissible fade show", role: 'alert' do
+              = msg
+              = link_to 'javascript:void(0)', class: 'close', data: { dismiss: 'alert' }, aria: { label: 'Close' } do
+                span aria-hidden='true' &times;
+        == yield
 
-    footer
-      .container
-        .text-center.text-muted CopyRight Infratop.inc
+      footer.footer.mt-auto.py-3.bg-light
+        .container
+          .text-center.text-muted CopyRight Infratop.inc

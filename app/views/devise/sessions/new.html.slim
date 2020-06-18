@@ -1,0 +1,23 @@
+.container-fluid.container-form
+  h2.mb-4 Log in
+
+  = form_with model: resource, as: resource_name, url: session_path(resource_name), local: true do |f|
+    = render 'devise/shared/error_messages', resource: resource
+
+    .field.form-group
+      = f.label :name
+      = f.text_field :name, autofocus: true, class: 'form-control'
+    .field.form-group
+      = f.label :password
+      = f.password_field :password, autocomplete: 'current-password', class: 'form-control'
+      - if @minimum_password_length
+        small.form-text.text-muted = "(#{@minimum_password_length} characters minimum)"
+    - if devise_mapping.rememberable?
+      .field.form-group
+        .custom-control.custom-checkbox
+          = f.check_box :remember_me, class: 'custom-control-input'
+          = f.label :remember_me, class: 'custom-control-label'
+    .actions.form-group.text-center
+      .row
+        .col-md-4.offset-md-4.col-8.offset-2 = f.submit 'Log in', class: 'btn btn-primary btn-block'
+    .form-group.text-center = render 'devise/shared/links'
