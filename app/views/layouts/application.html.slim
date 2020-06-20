@@ -21,18 +21,32 @@ html
                 = link_to root_path, class: 'nav-link', aria: { label: 'Home' } do
                   i.fas.fa-home.mr-1
                   | Home
-              li.nav-item
-                = link_to home_about_path, class: 'nav-link', aria: { label: 'About' } do
-                  i.fas.fa-link.mr-1
-                  | About
-              li.nav-item
-                = link_to new_user_registration_path, class: 'nav-link', aria: { label: 'Sign up' } do
-                  i.fas.fa-edit.mr-1
-                  | Sign up
-              li.nav-item
-                = link_to new_user_session_path, class: 'nav-link', aria: { label: 'Login' } do
-                  i.fas.fa-sign-in-alt.mr-1
-                  | Login
+              - if current_user
+                li.nav-item
+                  = link_to users_path, class: 'nav-link', aria: { label: 'Users' } do
+                    i.fas.fa-user.mr-1
+                    | Users
+                li.nav-item
+                  = link_to books_path, class: 'nav-link', aria: { label: 'Books' } do
+                    i.fas.fa-book.mr-1
+                    | Books
+                li.nav-item
+                  = link_to destroy_user_session_path, method: :delete, class: 'nav-link', aria: { label: 'Login' } do
+                    i.fas.fa-sign-out-alt.mr-1
+                    | Logout
+              - else
+                li.nav-item
+                  = link_to home_about_path, class: 'nav-link', aria: { label: 'About' } do
+                    i.fas.fa-link.mr-1
+                    | About
+                li.nav-item
+                  = link_to new_user_registration_path, class: 'nav-link', aria: { label: 'Sign up' } do
+                    i.fas.fa-edit.mr-1
+                    | Sign up
+                li.nav-item
+                  = link_to new_user_session_path, class: 'nav-link', aria: { label: 'Login' } do
+                    i.fas.fa-sign-in-alt.mr-1
+                    | Login
 
     #wrapper
       main

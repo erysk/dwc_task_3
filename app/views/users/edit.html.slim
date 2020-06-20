@@ -1,0 +1,17 @@
+.container-fluid.container-form
+  h2 User info
+  = form_with model: @user, local: true do |f|
+    = render 'shared/error_messages', resource: @user
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+    .form-group
+      = f.label :profile_image, 'Image'
+      .custom-file
+        = f.attachment_field :profile_image, class: 'custom-file-input'
+        = f.label :image, 'ファイル選択...', class: 'custom-file-label', data: { browse: '参照' }
+    .form-group
+      = f.label :introduction
+      = f.text_area :introduction, class: 'form-control'
+    .form-group
+      = f.submit 'Update User', class: 'btn btn-primary btn-block'

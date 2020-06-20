@@ -1,0 +1,10 @@
+- if resource.errors.present?
+  .card.mb-4
+    .card-header.bg-danger.text-white
+      i.fas.fa-exclamation-triangle.mr-1
+      = "#{resource.errors.size.yield_self { |size| size > 1 ? "#{size} errors" : "#{size} error" }} "
+      = "prohibited this #{resource.model_name.name} from being saved."
+    .card-body
+      ul
+        - resource.errors.full_messages.each do |message|
+          li.text-danger = message
