@@ -1,3 +1,7 @@
 tr
-  td = book.title
+  td
+    = link_to user_path(book.user) do
+      = image_tag profile_image_path(book.user), class: 'profile-img profile-img-sm mr-1'
+      = book.user.name
+  td = link_to book.title, book_path(book)
   td = book.body

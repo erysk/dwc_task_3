@@ -16,13 +16,13 @@
   - if current_user?(user)
     #new-book-form.mb-4
       h2 New book
-      = form_with model: book = book || Book.new do |f|
+      = form_with model: book ||= current_user.books.new, local: true do |f|
         = render 'shared/error_messages', resource: book
         .form-group
           = f.label :title
           = f.text_field :title, class: 'form-control'
         .form-group
-          = f.label :body
+          = f.label :body, 'Opinion'
           = f.text_area :body, class: 'form-control'
         .form-group
           = f.submit 'Create Book', class: 'btn btn-primary btn-block'

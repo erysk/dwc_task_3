@@ -1,0 +1,18 @@
+.container
+  .row
+    .col-md-3
+      = render 'users/user_info', user: @book.user
+    .col-md-9
+      h2 Book detail
+      table.table.table-sm
+        tbody
+          tr
+            td
+              = link_to user_path(@book.user) do
+                = image_tag profile_image_path(@book.user), class: 'profile-img profile-img-sm mr-1'
+                = @book.user.name
+            td = @book.title
+            td = @book.body
+            - if current_user? @book.user
+              td = link_to 'Edit', edit_book_path(@book), class: 'btn btn-sm btn-success'
+              td = link_to 'Destroy', book_path(@book), method: :delete, class: 'btn btn-sm btn-danger', data: { confirm: '本当に削除しますか？' }

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def update
     current_user.update!(user_params)
-    redirect_to user_path(current_user)
+    redirect_to user_url(current_user), flask: { success: 'User was successfully updated.' }
   rescue ActiveRecord::RecordInvalid
     render :edit
   end

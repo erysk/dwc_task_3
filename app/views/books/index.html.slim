@@ -1,0 +1,14 @@
+.container
+  .row
+    .col-md-3
+      = render 'users/user_info', user: current_user, book: @book
+    .col-md-9
+      h2 Books
+      table.table.table-sm
+        thead
+          tr
+            th User
+            th Title
+            th Opinion
+        tbody
+          = render @books
