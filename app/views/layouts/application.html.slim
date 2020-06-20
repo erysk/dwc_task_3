@@ -17,11 +17,11 @@ html
             span.navbar-toggler-icon
           #header-menu.collapse.navbar-collapse
             ul.navbar-nav.ml-auto
-              li.nav-item
-                = link_to root_path, class: 'nav-link', aria: { label: 'Home' } do
-                  i.fas.fa-home.mr-1
-                  | Home
               - if current_user
+                li.nav-item
+                  = link_to user_path(current_user), class: 'nav-link', aria: { label: 'Home' } do
+                    i.fas.fa-home.mr-1
+                    | Home
                 li.nav-item
                   = link_to users_path, class: 'nav-link', aria: { label: 'Users' } do
                     i.fas.fa-user.mr-1
@@ -35,6 +35,10 @@ html
                     i.fas.fa-sign-out-alt.mr-1
                     | Logout
               - else
+                li.nav-item
+                  = link_to root_path, class: 'nav-link', aria: { label: 'Home' } do
+                    i.fas.fa-home.mr-1
+                    | Home
                 li.nav-item
                   = link_to home_about_path, class: 'nav-link', aria: { label: 'About' } do
                     i.fas.fa-link.mr-1

@@ -51,6 +51,13 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
+group :test do
+  gem 'capybara', '>= 2.15'
+  gem 'rspec-rails'
+  gem "factory_bot_rails"
+  gem 'faker'
+end
+
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
