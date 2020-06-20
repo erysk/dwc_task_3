@@ -1,0 +1,15 @@
+.container-fluid.container-form
+  h2 Editing Book
+  = form_with model: @book, local: true do |f|
+    = render 'shared/error_messages', resource: @book
+    .form-group
+      = f.label :title
+      = f.text_field :title, class: 'form-control'
+    .form-group
+      = f.label :body, 'Opinion'
+      = f.text_area :body, class: 'form-control'
+    .form-group
+      = f.submit 'Update Book', class: 'btn btn-primary btn-block'
+  = link_to 'show', book_path(@book)
+  = ' | '
+  = link_to 'back', books_path

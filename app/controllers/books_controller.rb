@@ -18,6 +18,15 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = current_user.books.find(params[:id])
+  end
+
+  def update
+    @book = current_user.books.find(params[:id])
+    @book.update! book_params
+    redirect_to book_path(@book), flash: { success: 'Book was successfully updated.' }
+  rescue ActiveRecord::RecordInvalid
+    render :edit
   end
 
   def destroy
