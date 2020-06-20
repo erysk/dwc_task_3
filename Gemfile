@@ -41,6 +41,8 @@ gem 'jquery-rails', '~> 4.4.0'
 gem 'bootstrap', '~> 4.5.0'
 gem 'slim', '~> 4.1.0'
 gem 'font-awesome-sass', '~> 5.13.0'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick", '~> 0.2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
