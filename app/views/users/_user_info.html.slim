@@ -1,0 +1,28 @@
+#user-info-area.mb-4
+  h2 User info
+  .mb-2 = image_tag profile_image_path(user), class: 'profile-img profile-img-lg'
+  table.table.table-sm
+    tbody
+      tr
+        th name
+        td = user.name
+      tr
+        th introduction
+        td = user.introduction
+  - if current_user?(user)
+    .mb-4
+      = link_to edit_user_path(current_user), class: 'btn btn-sm btn-outline-secondary btn-block' do
+        i.fas.fa-wrench
+  - if current_user?(user)
+    #new-book-form.mb-4
+      h2 New book
+      = form_with model: book = book || Book.new do |f|
+        = render 'shared/error_messages', resource: book
+        .form-group
+          = f.label :title
+          = f.text_field :title, class: 'form-control'
+        .form-group
+          = f.label :body
+          = f.text_area :body, class: 'form-control'
+        .form-group
+          = f.submit 'Create Book', class: 'btn btn-primary btn-block'

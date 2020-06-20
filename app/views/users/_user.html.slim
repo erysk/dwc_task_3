@@ -1,0 +1,4 @@
+tr
+  td = image_tag profile_image_path(user), class: 'profile-img profile-img-sm'
+  td = user.name
+  td = link_to 'Show', user_path(user)
