@@ -1,3 +1,7 @@
+img
+  width: 100%
+  max-width: 100%
+
 #wrapper
   display: flex
   flex-direction: column
@@ -9,3 +13,16 @@
 
 .text-alert
   color: red
+
+.profile-img
+  @extend .rounded-circle
+  object-fit: contain
+  &.profile-img-lg
+    width: 80px
+    height: 80px
+  &.profile-img-md
+    width: 48px
+    height: 48px
+  &.profile-img-sm
+    width: 32px
+    height: 32px
